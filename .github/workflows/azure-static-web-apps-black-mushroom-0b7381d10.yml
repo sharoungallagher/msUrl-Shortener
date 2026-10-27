@@ -15,18 +15,21 @@ steps:
   - name: Checkout repository
     uses: actions/checkout@v4
 
-  - name: Setup .NET
+  - name: Setup .NET 6
     uses: actions/setup-dotnet@v4
     with:
-      dotnet-version: '8.0.x'
+      dotnet-version: '6.0.x'
 
   - name: Setup Node.js
     uses: actions/setup-node@v4
     with:
       node-version: '22'
 
-  - name: Build Blazor application
-    run: dotnet publish src/client/TinyBlazorAdmin.csproj -c Release -o publish
+  - name: Restore dependencies
+    run: dotnet restore src/client/TinyBlazorAdmin.csproj
+
+  - name: Publish Blazor application
+    run: dotnet publish src/client/TinyBlazorAdmin.csproj -c Release -o publish --no-restore
 
   - name: Install Wrangler
     run: npm install --global wrangler
