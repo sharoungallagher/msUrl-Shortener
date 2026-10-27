@@ -1,13 +1,13 @@
 name: Cloudflare Workers CI/CD
 
-on:
-push:
-branches:
-- main
-workflow_dispatch:
+"on":
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-build_and_deploy:
+  build_and_deploy:
 runs-on: ubuntu-latest
 steps:
 - name: Checkout repository
