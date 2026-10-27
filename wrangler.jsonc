@@ -1,0 +1,10 @@
+
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+  "name": "msurl-shortener",
+  "compatibility_date": "2026-10-27",
+  "assets": {
+    "directory": "./publish/wwwroot",
+    "not_found_handling": "single-page-application"
+  }
+}
